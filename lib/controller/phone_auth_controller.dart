@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -22,9 +21,9 @@ class PhoneAuthController extends GetxController {
 
   sendSMS() {
     twilioFlutter = TwilioFlutter(
-        accountSid: '', // replace it with your account SID
-        authToken: '', // replace it with your auth token
-        twilioNumber: '' // replace it with your purchased twilioNumber
+        accountSid: 'AC376b2fb4feae6c4ac6b691b300ba17b2', // replace it with your account SID
+        authToken: 'dde87eabd4fdda41abc824da4db60a0c', // replace it with your auth token
+        twilioNumber: '+13345648011' // replace it with your purchased twilioNumber
 
         );
 

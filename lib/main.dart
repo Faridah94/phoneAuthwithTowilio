@@ -1,8 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phone_auth_project/screen/home_screen.dart';
+import 'package:phone_auth_project/screen/login.dart';
 import 'package:phone_auth_project/screen/phone_auth_screen.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp( options: const FirebaseOptions(
+     apiKey: 'AIzaSyCPQ10KALz5yX0isqnDq0Abm5BloSdiyc4',
+    appId: '1:898448769221:android:54733f6c0b6d78ee9eb0ac',
+    messagingSenderId: '',
+    projectId: 'phoneauth-18121',
+  ),);
   runApp(const MyApp());
 }
 
@@ -29,7 +41,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: PhoneAuthScreen()
+      home:
+      FirebaseAuth.instance.currentUser != null
+          ? const Home()
+          : const Login(),
+      //PhoneAuthScreen()
     );
   }
 }
